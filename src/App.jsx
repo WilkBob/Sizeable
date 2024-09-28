@@ -9,7 +9,7 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col text-rose-50">
+    <div className="min-h-screen flex flex-col text-rose-50 justify-between selection:bg-rose-200/20 selection:text-white space">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

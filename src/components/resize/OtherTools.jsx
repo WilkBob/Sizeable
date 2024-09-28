@@ -22,7 +22,7 @@ export const OtherTools = ({ location }) => {
 
   return (
     <div className="my-4">
-      <h2 className="text-2xl font-semibold mb-4">Other Tools</h2>
+      <h2 className="text-2xl mb-4">Other Tools</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tools.map((tool) => {
           if (tool.link === location.pathname) return null;
@@ -31,7 +31,7 @@ export const OtherTools = ({ location }) => {
               key={tool.name}
               className="bg-rose-200/20 backdrop-blur-sm p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <h3 className="text-xl font-semibold mb-2">{tool.name}</h3>
+              <h3 className="text-xl  mb-2">{tool.name}</h3>
               <p className=" mb-4">{tool.description}</p>
               <Link
                 to={tool.link}

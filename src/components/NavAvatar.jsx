@@ -100,7 +100,7 @@ const NavAvatar = () => {
       ) : (
         <button
           onClick={handleLogin}
-          className="flex items-center space-x-1 px-3 py-2 text-sm font-medium text-white bg-rose-500 rounded-md hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
+          className="flex items-center space-x-1 px-3 py-3 text-sm font-medium text-white bg-rose-500 rounded-md hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500"
         >
           <FaSignInAlt className="w-4 h-4" />
           <span>Login</span>

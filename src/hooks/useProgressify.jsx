@@ -10,6 +10,7 @@ const useProgressify = () => {
     setLoading(true);
     setError(null);
     setZipUrl(null);
+    console.log(images, query);
 
     try {
       const url = await progressify(images, query);

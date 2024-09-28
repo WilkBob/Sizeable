@@ -35,14 +35,6 @@ const progressify = async (images, query) => {
     const blob = await response.blob();
     const zipUrl = URL.createObjectURL(blob);
 
-    // Create a link element to trigger the download
-    const link = document.createElement("a");
-    link.href = zipUrl;
-    link.setAttribute("download", "processed_images.zip");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link); // Clean up the link element
-
     return zipUrl;
   } catch (error) {
     console.error("Error during the fetch operation:", error);

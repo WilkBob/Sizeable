@@ -2,7 +2,7 @@ const InfoSection = () => {
   return (
     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="bg-rose-200/20 backdrop-blur-sm p-4 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-2">How to Use</h2>
+        <h2 className="text-2xl  mb-2">How to Use</h2>
         <ol className="list-decimal pl-4">
           <li>
             Upload an image file by clicking the &quot;Choose File&quot; button.
@@ -21,7 +21,7 @@ const InfoSection = () => {
         </ol>
       </div>
       <div className="bg-rose-200/20 backdrop-blur-sm p-4 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-2">Why Resize Your Images?</h2>
+        <h2 className="text-2xl  mb-2">Why Resize Your Images?</h2>
         <ul className="list-disc pl-4">
           <li>
             <strong>Faster loading times:</strong> Smaller image files load more

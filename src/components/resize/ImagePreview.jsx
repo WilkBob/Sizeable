@@ -14,7 +14,7 @@ const ImagePreview = ({ processedImage, downloadFilename }) => {
       <a
         href={processedImage}
         download={downloadFilename}
-        className="mt-4 inline-block px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
+        className="mt-4 inline-block px-4 py-2 bg-green-500 text-white  rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
       >
         Download Processed Image
       </a>

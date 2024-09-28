@@ -62,9 +62,11 @@ const NavBar = () => {
   }, [burgerRef, dropdownRef, setIsOpen]);
 
   return (
-    <nav className="p-4" role="navigation" aria-label="Main Navigation">
-      <div className="container max-w-5xl mx-auto flex justify-between items-center">
-        <div className="text-lg font-bold">Sizeable</div>
+    <nav className="p-4 text-lg" role="navigation" aria-label="Main Navigation">
+      <div className="container max-w-6xl mx-auto flex justify-between items-center">
+        <Link to={"/"} className="text-xl font-bold hover:text-rose-300">
+          Sizeable
+        </Link>
 
         <ul className="space-x-4 hidden md:flex items-center">
           {items.map((item) => (

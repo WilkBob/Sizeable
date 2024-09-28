@@ -8,6 +8,7 @@ import ErrorMessage from "../components/resize/ErrorMessage";
 import InfoSection from "../components/resize/InfoSection";
 import { OtherTools } from "../components/resize/OtherTools";
 import { extractFilename } from "../utils/extractFilename";
+import NotLoggedIn from "../components/NotLoggedIn";
 
 const Resize = () => {
   const [file, setFile] = useState(null);
@@ -76,14 +77,14 @@ const Resize = () => {
   };
 
   return (
-    <div className="flex flex-col container mx-auto max-w-full md:max-w-5xl">
+    <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
       <form
-        className="bg-rose-50/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2 mt-8"
+        className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2 "
         onSubmit={handleUpload}
       >
         <h1 className="text-4xl my-4 font-bold">Image Resizer</h1>
 
-        <h2 className="text-xl font-semibold mb-4">
+        <h2 className="text-xl  mb-4">
           Choose an image, and enter a width, image will scale according to
           aspect ratio
         </h2>
@@ -103,6 +104,7 @@ const Resize = () => {
           setUserWebp={setUserWebp}
         />
         <ProcessButton disabled={!file || loading} loading={loading} />
+        <NotLoggedIn />
       </form>
 
       <ImagePreview
