@@ -12,7 +12,7 @@ const useProcess = (endpoint) => {
       setLoading(true);
       setError(null);
       setOutUrl(null);
-      console.log(images, query);
+      //console.log(images, query);
 
       try {
         const [url, filename] = await (endpoint === "resize" ? resize : webp)(

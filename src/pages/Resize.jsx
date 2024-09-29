@@ -80,9 +80,9 @@ const Resize = () => {
       {outUrl && !processedMultiple && (
         <ImagePreview processedImage={outUrl} downloadFilename={filename} />
       )}
-
-      <InfoSection />
       <ErrorMessage error={error} />
+      <InfoSection />
+
       <OtherTools location={{ pathname: "/resize" }} />
     </div>
   );
