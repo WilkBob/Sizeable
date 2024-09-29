@@ -11,12 +11,10 @@ import useProcess from "../hooks/useProcess";
 
 const Webp = () => {
   const [file, setFile] = useState(null);
-  const [downloadFilename, setDownloadFilename] = useState(
-    "processed-image.webp"
-  );
 
   const [processedMultiple, setProcessedMultiple] = useState(false);
-  const { loading, error, outUrl, processImages, reset } = useProcess();
+  const { loading, error, outUrl, processImages, reset, filename } =
+    useProcess();
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -43,11 +41,7 @@ const Webp = () => {
             reset();
             const multiple = e.target.files.length > 1;
             setFile(Array.from(e.target.files));
-            setDownloadFilename(
-              multiple
-                ? "images.zip"
-                : e.target.files[0].name.split(".")[0] + ".webp"
-            );
+
             setProcessedMultiple(multiple);
           }}
           multiple
@@ -58,7 +52,7 @@ const Webp = () => {
         {outUrl && processedMultiple && (
           <a
             href={outUrl}
-            download={downloadFilename}
+            download={filename}
             className="
           bg-lime-500 text-white px-4 py-2 my-4 rounded-md hover:bg-lime-700 transition-colors duration-300 text-center flex items-center justify-center
           "
@@ -69,10 +63,7 @@ const Webp = () => {
       </form>
 
       {outUrl && !processedMultiple && (
-        <ImagePreview
-          processedImage={outUrl}
-          downloadFilename={downloadFilename}
-        />
+        <ImagePreview processedImage={outUrl} downloadFilename={filename} />
       )}
 
       <InfoSection />

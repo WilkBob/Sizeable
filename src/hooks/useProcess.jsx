@@ -6,7 +6,7 @@ const useProcess = (endpoint) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [outUrl, setOutUrl] = useState(null);
-
+  const [filename, setFilename] = useState(null);
   const processImages = useCallback(
     async (images, query) => {
       setLoading(true);
@@ -15,11 +15,12 @@ const useProcess = (endpoint) => {
       console.log(images, query);
 
       try {
-        const url = await (endpoint === "resize" ? resize : webp)(
+        const [url, filename] = await (endpoint === "resize" ? resize : webp)(
           images,
           query
         );
         setOutUrl(url);
+        setFilename(filename);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -34,7 +35,7 @@ const useProcess = (endpoint) => {
     setError(null);
   };
 
-  return { loading, error, outUrl, processImages, reset };
+  return { loading, error, outUrl, filename, processImages, reset };
 };
 
 export default useProcess;

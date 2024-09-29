@@ -1,4 +1,5 @@
 import { auth } from "./Firebase";
+import { extractFilename } from "../utils/extractFilename";
 const baseURL = "https://sizeable-437121.uc.r.appspot.com/";
 
 // query = {include_thumbnails: true, thumbnails_size: 300}
@@ -51,11 +52,15 @@ const webp = async (images, query) => {
       );
     }
 
+    const filename = extractFilename(
+      response.headers.get("content-disposition")
+    );
+
     // The API returns an image, or a ZIP file containing processed images depending on the number of images
     const blob = await response.blob();
     const zipUrl = URL.createObjectURL(blob);
 
-    return zipUrl;
+    return [zipUrl, filename];
   } catch (error) {
     console.error("Error during the fetch operation:", error);
     throw error;
