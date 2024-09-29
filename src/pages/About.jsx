@@ -7,6 +7,7 @@ import {
   FaRocket,
   FaLightbulb,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const containerVariants = {
@@ -62,6 +63,9 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaFileImage className="mr-2 text-lime-300" /> WebP Conversion
+              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+                {" -Try it!"}
+              </Link>
             </h3>
             <p>
               Convert your images to the WebP format, which provides superior
@@ -72,6 +76,9 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaImage className="mr-2 text-lime-300" /> Image Resizing
+              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+                {" -Try it!"}
+              </Link>
             </h3>
             <p>
               Easily resize your images to optimal dimensions, reducing file
@@ -81,6 +88,9 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaSpinner className="mr-2 text-lime-300" /> Progressify
+              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+                {" -Try it!"}
+              </Link>
             </h3>
             <p>
               Our progressive image loading tool that creates a smooth,
@@ -93,9 +103,10 @@ const About = () => {
       <motion.section className="mb-8" variants={itemVariants}>
         <h2 className="text-2xl font-semibold mb-4 flex items-center">
           <FaCode className="mr-2 text-rose-500" /> The Progressify Library
+          (React)
         </h2>
         <p className="mb-4">
-          The Progressify library is a powerful React component designed to work
+          The Progressify library is a React component designed to work
           seamlessly with images processed by our Progressify tool. It offers:
         </p>
         <ul className="list-disc pl-6 mb-4">
@@ -110,10 +121,11 @@ const About = () => {
             images
           </motion.li>
           <motion.li variants={itemVariants}>
-            Customizable styling to fit your design needs
+            Customizable styling to fit your design needs (works like an{" "}
+            {`<img>`}, use your own classNames)
           </motion.li>
         </ul>
-        <p>
+        <p className="my-2">
           With Progressify, you can ensure your images load quickly and
           efficiently, providing an optimal user experience across all devices
           and network conditions.

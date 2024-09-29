@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # API
-API/firebase.js
+firebase.js

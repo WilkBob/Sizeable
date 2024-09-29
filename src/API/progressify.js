@@ -1,4 +1,5 @@
-const baseURL = "http://localhost:8000/component/";
+import { auth } from "./Firebase";
+const baseURL = "https://sizeable-437121.uc.r.appspot.com/component/";
 
 // query = {include_thumbnails: true, thumbnails_size: 300}
 
@@ -16,12 +17,17 @@ const progressify = async (images, query) => {
       url.searchParams.append(key, query[key])
     );
   }
-  // url would be http://localhost:8000/component/?include_thumbnails=true&thumbnails_size=300
+  // url would be https://sizeable-437121.uc.r.appspot.com/component/?include_thumbnails=true&thumbnails_size=300
 
   try {
+    const user = auth.currentUser;
+    const token = user ? await user.getIdToken() : null;
     const response = await fetch(url, {
       method: "POST",
       body: formData,
+      headers: {
+        ...(token && { Authorization: `Bearer ${token}` }),
+      },
     });
 
     if (!response.ok) {

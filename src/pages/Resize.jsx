@@ -7,84 +7,40 @@ import ImagePreview from "../components/resize/ImagePreview";
 import ErrorMessage from "../components/resize/ErrorMessage";
 import InfoSection from "../components/resize/InfoSection";
 import { OtherTools } from "../components/resize/OtherTools";
-import { extractFilename } from "../utils/extractFilename";
 import NotLoggedIn from "../components/NotLoggedIn";
+import useProcess from "../hooks/useProcess";
 
 const Resize = () => {
   const [file, setFile] = useState(null);
   const [userMaxWidth, setUserMaxWidth] = useState("");
   const [userWebp, setUserWebp] = useState(true);
-  const [processedImage, setProcessedImage] = useState(null);
   const [downloadFilename, setDownloadFilename] = useState(
     "processed-image.webp"
   );
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+
+  const [processedMultiple, setProcessedMultiple] = useState(false);
+  const { loading, error, outUrl, processImages, reset } = useProcess("resize");
 
   const handleUpload = async (e) => {
     e.preventDefault();
     if (!file) return;
-    if (!validateInput()) return;
 
-    setLoading(true);
-    setError(null);
+    const query = {
+      max_width: userMaxWidth,
+      webp: userWebp,
+    };
 
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-
-      const response = await fetch(
-        `http://localhost:8000/resize/?max_width=${
-          userMaxWidth || 500
-        }&webp=${userWebp}`,
-        { method: "POST", body: formData }
-      );
-
-      if (!response.ok) throw new Error("Network response was not ok");
-
-      const blob = await response.blob();
-      const imageUrl = URL.createObjectURL(blob);
-      setProcessedImage(imageUrl);
-
-      const contentDisposition = response.headers.get("Content-Disposition");
-      setDownloadFilename(extractFilename(contentDisposition));
-    } catch (error) {
-      console.error("Error uploading file:", error);
-      setError("Error processing image");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const validateInput = () => {
-    if (userMaxWidth && (isNaN(userMaxWidth) || userMaxWidth <= 0)) {
-      setError("Please enter a valid max width");
-      return false;
-    }
-    if (userMaxWidth > 2000) {
-      setError("Max width should be less than or equal to 2000");
-      return false;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      setError("File size should be less than 5MB");
-      return false;
-    }
-    if (file.type.split("/")[0] !== "image") {
-      setError("Please upload an image file");
-      return false;
-    }
-    return true;
+    await processImages(file, query);
   };
 
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
       <form
-        className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2 "
+        className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2"
         onSubmit={handleUpload}
       >
         <h1 className="text-4xl my-4 font-bold">Image Resizer</h1>
-
-        <h2 className="text-xl  mb-4">
+        <h2 className="text-xl mb-4">
           Choose an image, and enter a width, image will scale according to
           aspect ratio
         </h2>
@@ -92,10 +48,16 @@ const Resize = () => {
         <FileUpload
           file={file}
           setFile={setFile}
-          onChange={() => {
-            setError(null);
-            setProcessedImage(null);
+          onChange={(e) => {
+            reset();
+            const multiple = e.target.files.length > 1;
+            setFile(Array.from(e.target.files));
+            setDownloadFilename(
+              multiple ? "images.zip" : e.target.files[0].name
+            );
+            setProcessedMultiple(multiple);
           }}
+          multiple
         />
         <ResizeOptions
           userMaxWidth={userMaxWidth}
@@ -105,12 +67,27 @@ const Resize = () => {
         />
         <ProcessButton disabled={!file || loading} loading={loading} />
         <NotLoggedIn />
+
+        {outUrl && processedMultiple && (
+          <a
+            href={outUrl}
+            download={downloadFilename}
+            className="
+          bg-lime-500 text-white px-4 py-2 my-4 rounded-md hover:bg-lime-700 transition-colors duration-300 text-center flex items-center justify-center
+          "
+          >
+            Download Processed Images
+          </a>
+        )}
       </form>
 
-      <ImagePreview
-        processedImage={processedImage}
-        downloadFilename={downloadFilename}
-      />
+      {outUrl && !processedMultiple && (
+        <ImagePreview
+          processedImage={outUrl}
+          downloadFilename={downloadFilename}
+        />
+      )}
+
       <InfoSection />
       <ErrorMessage error={error} />
       <OtherTools location={{ pathname: "/resize" }} />

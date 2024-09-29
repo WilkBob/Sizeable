@@ -27,14 +27,16 @@ const Progressify = () => {
           </ol>
           <p className=" text-lg mt-4">
             Your images will be converted to webp format, and returned in 3
-            copies: full-size, thumbnail, and low-resolution placeholder. As
-            well, an index.json file will be included with the image data,
-            including a basde64 image string.
+            copies: full-size, thumbnail, and low-resolution placeholder. An
+            index.json file will be included as well, with urls to the images,
+            their dimensions, and a base64 encoded version of the placeholder
+            image.
           </p>
           <p className="text-lg  mt-4">
-            After processing, you can download the images as a zip file and
-            implement them on your website, either manually or by using our
-            ready-to-go React Components
+            The index contains useful metadata for implementing progressive
+            image loading. With our component, just copy the contents of the zip
+            into your public folder, and use the filename (no extension) as the
+            src for the {`<ProgressiveImage>`} component.
           </p>
         </div>
         <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg">
