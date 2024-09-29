@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
-import {
-  FaHome,
-  FaInfoCircle,
-  FaEnvelope,
-  FaGithub,
-  FaUser,
-} from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaGithub } from "react-icons/fa";
+import { PiHeartStraightFill } from "react-icons/pi";
 
 const Footer = () => {
   return (
@@ -26,13 +21,6 @@ const Footer = () => {
             <FaInfoCircle />
             <span>About</span>
           </Link>
-          <Link
-            to="/contact"
-            className="text-rose-50 hover:text-white flex items-center space-x-1"
-          >
-            <FaEnvelope />
-            <span>Contact</span>
-          </Link>
           <a
             href="https://github.com/wilkbob/sizeable"
             target="_blank"
@@ -42,18 +30,18 @@ const Footer = () => {
             <FaGithub />
             <span>GitHub</span>
           </a>
+        </div>
+        <div className="flex justify-center items-center py-4">
           <a
             href="https://bob-the-dev.web.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-rose-50 hover:text-white flex items-center space-x-1"
+            className="flex items-center space-x-2 text-rose-50 hover:text-rose-400 transition duration-300"
           >
-            <FaUser />
-            <span>Portfolio</span>
+            <span>Made with</span>
+            <PiHeartStraightFill className="text-rose-500 animate-pulse" />
+            <span>by Bob</span>
           </a>
-        </div>
-        <div className="text-sm text-center">
-          Made with <span className="text-red-500">&hearts;</span> by Bob
         </div>
       </div>
     </footer>

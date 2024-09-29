@@ -5,13 +5,38 @@ import FileUpload from "../components/FileUpload";
 import ProcessButton from "../components/resize/ProcessButton";
 import ErrorMessage from "../components/resize/ErrorMessage";
 import Switch from "../components/Switch";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import NotLoggedIn from "../components/NotLoggedIn";
 const Progressify = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
       <ImageProcessor />
       <div className="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg shadow-md">
+          <h3 className="text-2xl font-semibold  mb-4">
+            How to Use Progressify
+          </h3>
+          <ol className="text-lg list-decimal pl-4">
+            <li>Upload images using the &quot;Choose File&quot; button.</li>
+            <li>Optionally include thumbnails and choose width.</li>
+            <li>Click the &quot;Process Images&quot; button.</li>
+            <li>
+              Download the processed images as a zip file, and use them on your
+              website!
+            </li>
+          </ol>
+          <p className=" text-lg mt-4">
+            Your images will be converted to webp format, and returned in 3
+            copies: full-size, thumbnail, and low-resolution placeholder. As
+            well, an index.json file will be included with the image data,
+            including a basde64 image string.
+          </p>
+          <p className="text-lg  mt-4">
+            After processing, you can download the images as a zip file and
+            implement them on your website, either manually or by using our
+            ready-to-go React Components
+          </p>
+        </div>
         <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg">
           <h2 className="text-3xl font-semibold  mb-4">Why Progressify?</h2>
           <p className="text-lg  mb-6">
@@ -32,62 +57,6 @@ const Progressify = () => {
             </a>{" "}
             to implement progressive image loading.
           </p>
-        </div>
-        <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-semibold  mb-4">
-            How to Use Progressify
-          </h3>
-          <p className="mb-4">
-            After using the tool to process your images, you can use them any
-            way you like, but our <Link to={"/"}>React library</Link> makes it
-            easy to implement progressive image loading on your website. Just
-            copy the contents of the zip file into your public code, and install
-            (or copy/paste) the components into your project, then use them like
-            this:
-          </p>
-          <div className="block bg-rose-950/50 border-2 text-white p-4 rounded-md overflow-x-auto shadow-lg">
-            <pre>
-              <code>
-                <span className="text-teal-300">&lt;ImageProvider</span>{" "}
-                <span className="text-yellow-300">indexUrl</span>=
-                <span className="text-lime-300">
-                  &quot;/path/to/index.json&quot;
-                </span>
-                <span className="text-teal-300">&gt;</span>
-                <br />
-                &nbsp;&nbsp;
-                <span className="text-teal-300">&lt;ProgressiveImage</span>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="text-yellow-300">src</span>=
-                <span className="text-lime-300">
-                  &quot;image-filename&quot;
-                </span>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="text-yellow-300">alt</span>=
-                <span className="text-lime-300">
-                  &quot;Description of the image&quot;
-                </span>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="text-yellow-300">className</span>=
-                <span className="text-lime-300">
-                  &quot;your-custom-classes&quot;
-                </span>
-                <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="text-yellow-300">placeholderClassName</span>=
-                <span className="text-lime-300">
-                  &quot;your-custom-classes&quot;
-                </span>
-                <br />
-                &nbsp;&nbsp;<span className="text-teal-300">/&gt;</span>
-                <br />
-                <span className="text-teal-300">&lt;/ImageProvider&gt;</span>
-              </code>
-            </pre>
-          </div>
         </div>
       </div>
       <OtherTools location={{ pathname: "/progressify" }} />
@@ -124,7 +93,7 @@ const ImageProcessor = () => {
       <h1 className="text-4xl my-4 font-bold">Progressify</h1>
 
       <h2 className="text-xl  mb-4">
-        Upload your images and we&apos;ll do the rest.
+        Generate progressive images for your website, fast, easy, and free!
       </h2>
       <hr className="mb-4" />
       <FileUpload

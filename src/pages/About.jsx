@@ -44,7 +44,7 @@ const About = () => {
 
       <motion.section className="mb-8" variants={itemVariants}>
         <h2 className="text-2xl font-semibold mb-4 flex items-center">
-          <FaLightbulb className="mr-2 text-yellow-300" /> Our Goal
+          <FaLightbulb className="mr-2 text-rose-500" /> Our Goal
         </h2>
         <p className="mb-4">
           At Sizeable, our mission is to make image processing free, simple, and
