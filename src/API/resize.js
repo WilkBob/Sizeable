@@ -1,6 +1,6 @@
 import { auth } from "./Firebase";
 import { extractFilename } from "../utils/extractFilename";
-const baseURL = "http://localhost:8000/";
+const baseURL = "https://sizeable-437121.uc.r.appspot.com/";
 
 // query = {include_thumbnails: true, thumbnails_size: 300}
 
@@ -27,7 +27,7 @@ const resize = async (images, query) => {
       url.searchParams.append(key, query[key])
     );
   }
-  // url would be http://localhost:8000/resize or http://localhost:8000/resize-multiple
+  // url would be https://sizeable-437121.uc.r.appspot.com/resize or https://sizeable-437121.uc.r.appspot.com/resize-multiple
 
   const headers = {};
   if (images.length > 1) {
