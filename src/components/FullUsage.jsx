@@ -3,7 +3,7 @@ import { FaFile, FaFolder } from "react-icons/fa";
 const FullUsage = () => {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-semibold mb-6">Usage</h2>
+      <h2 className="text-3xl font-semibold text-lime-300 mb-6">- Usage</h2>
       <div className="space-y-6">
         <div>
           <h3 className="text-xl font-semibold mb-2 text-rose-400">

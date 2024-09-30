@@ -6,7 +6,7 @@ import { FiZap } from "react-icons/fi";
 const Features = () => {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-semibold mb-6">Features</h2>
+      <h2 className="text-4xl font-semibold text-lime-300 mb-6">- Features</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FeatureCard
           icon={FiZap}

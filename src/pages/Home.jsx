@@ -155,7 +155,7 @@ const Home = () => {
             </p>
             <div className="flex justify-center space-x-4 mt-6">
               <motion.a
-                href="https://github.com/yourusername/progressify-react"
+                href="https://github.com/WilkBob/progressify-react"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-700 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors duration-300 flex items-center"
@@ -174,6 +174,15 @@ const Home = () => {
               >
                 <FaNpm className="mr-2" /> npm
               </motion.a>
+              <Link
+                to="/progressify-react"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 flex items-center"
+              >
+                Get Started
+              </Link>
             </div>
           </div>
         </motion.section>
