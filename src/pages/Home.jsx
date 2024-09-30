@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaImage, FaFileImage, FaSpinner } from "react-icons/fa";
-import HomeHelmet from "./Helmets/HomeHelmet";
 const Home = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,7 +28,6 @@ const Home = () => {
       initial="hidden"
       animate="visible"
     >
-      <HomeHelmet />
       <motion.header className="text-center mb-8" variants={itemVariants}>
         <h1 className="text-4xl font-bold mb-4">Welcome to Sizeable</h1>
         <p className="text-lg">
