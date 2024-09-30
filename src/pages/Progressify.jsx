@@ -78,7 +78,7 @@ export default Progressify;
 const ImageProcessor = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [includeThumbnails, setIncludeThumbnails] = useState(true);
-  const [thumbnailsSize, setThumbnailsSize] = useState(300);
+  const [thumbnailsSize, setThumbnailsSize] = useState(500);
   const { loading, error, zipUrl, processImages } = useProgressify();
 
   const handleFileChange = (event) => {
