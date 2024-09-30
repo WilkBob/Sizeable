@@ -4,6 +4,7 @@ import { ImImage } from "react-icons/im";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaGithub, FaNpm, FaFolder, FaFile } from "react-icons/fa";
+import ProgressifyReactHelmet from "./Helmets/ProgressifyReactHelmet";
 
 const FeatureCard = ({ icon: Icon, title, description }) => (
   <div className="bg-rose-200/20 p-6 rounded-lg shadow-md">
@@ -32,6 +33,7 @@ CodeBlock.propTypes = {
 const ProgressifyReact = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4 px-4">
+      <ProgressifyReactHelmet />
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-rose-400 mb-4">
           Progressify React

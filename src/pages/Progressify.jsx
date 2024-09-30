@@ -9,9 +9,11 @@ import Switch from "../components/Switch";
 import NotLoggedIn from "../components/NotLoggedIn";
 import { Link } from "react-router-dom";
 import UsageExample from "../components/UsageExample";
+import ProgressifyHelmet from "./Helmets/ProgressifyHelmet";
 const Progressify = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
+      <ProgressifyHelmet />
       <ImageProcessor />
       <div className="my-8 grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg shadow-md">

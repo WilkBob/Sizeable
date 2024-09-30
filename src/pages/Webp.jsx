@@ -8,6 +8,7 @@ import InfoSection from "../components/resize/InfoSection";
 import { OtherTools } from "../components/resize/OtherTools";
 import NotLoggedIn from "../components/NotLoggedIn";
 import useProcess from "../hooks/useProcess";
+import WebpHelmet from "./Helmets/WebpHelmet";
 
 const Webp = () => {
   const [file, setFile] = useState(null);
@@ -25,6 +26,7 @@ const Webp = () => {
 
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
+      <WebpHelmet />
       <form
         className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2"
         onSubmit={handleUpload}

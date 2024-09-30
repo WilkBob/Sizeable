@@ -8,6 +8,7 @@ import {
   FaLightbulb,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AboutHelmet from "./Helmets/AboutHelmet";
 
 const About = () => {
   const containerVariants = {
@@ -36,6 +37,7 @@ const About = () => {
       initial="hidden"
       animate="visible"
     >
+      <AboutHelmet />
       <motion.h1
         className="text-4xl font-bold mb-6 text-center"
         variants={itemVariants}
