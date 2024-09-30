@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FaGithub, FaNpm } from "react-icons/fa";
 import ProgressifyReactHelmet from "./Helmets/ProgressifyReactHelmet";
 import CodeBlock from "../components/progressifyreact/CodeBlock";
@@ -11,12 +12,17 @@ const ProgressifyReact = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4 px-4">
       <ProgressifyReactHelmet />
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-mono text-rose-400 mb-4">
+      <motion.header
+        className="text-center mb-12 min-h-[50vh] flex flex-col justify-center"
+        initial={{ opacity: 0.8, filter: "blur(10px)" }}
+        animate={{ opacity: 1, filter: "blur(0px)" }}
+        transition={{ duration: 2 }}
+      >
+        <h1 className="text-5xl font-mono text-rose-400 mb-4">
           progressify-react
         </h1>
-        <p className="text-xl">
-          Enhance your React app with smooth, progressive image loading
+        <p className="text-2xl">
+          Enhance your React app with smooth progressive image loading
         </p>
         <div className="flex justify-center space-x-6 mt-6">
           <a
@@ -38,7 +44,7 @@ const ProgressifyReact = () => {
             <span className="text-lg font-semibold">GitHub</span>
           </a>
         </div>
-      </header>
+      </motion.header>
       <Features />
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">Requirements</h2>
