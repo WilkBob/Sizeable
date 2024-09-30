@@ -1,6 +1,6 @@
 const UsageExample = () => {
   return (
-    <div className="block bg-rose-950/50 border-2 text-white p-4 rounded-md overflow-x-auto shadow-lg">
+    <div className="block bg-rose-200/20 border-2 text-white p-4 rounded-md overflow-x-auto shadow-lg">
       <pre>
         <code>
           <span className="text-teal-300">&lt;ImageProvider</span>

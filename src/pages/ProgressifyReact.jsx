@@ -20,7 +20,7 @@ FeatureCard.propTypes = {
 };
 
 const CodeBlock = ({ code }) => (
-  <pre className="bg-rose-950/50 border-white border-2 text-lime-300 p-4 rounded-md overflow-x-auto">
+  <pre className="bg-rose-200/20 border-white border-2 text-lime-300 p-4 rounded-md overflow-x-auto">
     <code>{code}</code>
   </pre>
 );
@@ -116,7 +116,7 @@ const ProgressifyReact = () => {
             <h3 className="text-xl font-semibold mb-2 text-rose-400">
               ImageProvider
             </h3>
-            <div className="block bg-rose-950/50 border-2 p-4 rounded-md overflow-x-auto shadow-lg">
+            <div className="block bg-rose-200/20 border-2 p-4 rounded-md overflow-x-auto shadow-lg">
               <pre>
                 <code>
                   <span className="text-teal-300">import</span> React{" "}
@@ -160,7 +160,7 @@ const ProgressifyReact = () => {
             <h3 className="text-xl font-semibold mb-2 text-rose-400">
               ProgressiveImage
             </h3>
-            <div className="block bg-rose-950/50 border-2 p-4 rounded-md overflow-x-auto shadow-lg">
+            <div className="block bg-rose-200/20 border-2 p-4 rounded-md overflow-x-auto shadow-lg">
               <pre>
                 <code>
                   <span className="text-teal-300">import</span> React{" "}
@@ -265,7 +265,7 @@ const ProgressifyReact = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">API Reference</h2>
         <table className="w-full border-collapse border border-gray-300">
-          <thead className="bg-rose-950/50">
+          <thead className="bg-rose-200/20">
             <tr>
               <th className="border border-gray-300 p-2">Prop</th>
               <th className="border border-gray-300 p-2">Type</th>
