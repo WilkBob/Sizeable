@@ -104,6 +104,12 @@ const About = () => {
         <h2 className="text-2xl font-semibold mb-4 flex items-center">
           <FaCode className="mr-2 text-rose-500" /> The Progressify Library
           (React)
+          <Link
+            to="/progressify-react"
+            className="text-lime-300 hover:underline ml-2"
+          >
+            {" -Get Started!"}
+          </Link>
         </h2>
         <p className="mb-4">
           The Progressify library is a React component designed to work

@@ -16,6 +16,7 @@ const NavBar = () => {
     { label: "Image Resizer", to: "/resize" },
     { label: "WebP Converter", to: "/webp" },
     { label: "Progressify", to: "/progressify" },
+    { label: "Progressify-React (library)", to: "/progressify-react" },
   ];
 
   const burgerRef = useRef(null);

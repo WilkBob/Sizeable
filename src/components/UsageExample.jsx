@@ -3,9 +3,7 @@ const UsageExample = () => {
     <div className="block bg-rose-950/50 border-2 text-white p-4 rounded-md overflow-x-auto shadow-lg">
       <pre>
         <code>
-          <span className="text-teal-300">&lt;ImageProvider</span>{" "}
-          <span className="text-yellow-300">indexUrl</span>=
-          <span className="text-lime-300">&quot;/path/to/index.json&quot;</span>
+          <span className="text-teal-300">&lt;ImageProvider</span>
           <span className="text-teal-300">&gt;</span>
           <br />
           &nbsp;&nbsp;

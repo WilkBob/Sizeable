@@ -7,6 +7,8 @@ import ErrorMessage from "../components/resize/ErrorMessage";
 import Switch from "../components/Switch";
 // import { Link } from "react-router-dom";
 import NotLoggedIn from "../components/NotLoggedIn";
+import { Link } from "react-router-dom";
+import UsageExample from "../components/UsageExample";
 const Progressify = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4">
@@ -16,28 +18,28 @@ const Progressify = () => {
           <h3 className="text-2xl font-semibold  mb-4">
             How to Use Progressify
           </h3>
-          <ol className="text-lg list-decimal pl-4">
-            <li>Upload images using the &quot;Choose File&quot; button.</li>
-            <li>Optionally include thumbnails and choose width.</li>
-            <li>Click the &quot;Process Images&quot; button.</li>
+          <ol className="text-lg list-decimal pl-4 mb-4">
+            <li>Choose images and thumnail width</li>
+            <li>Copy processed files to your &quot;public&quot; directory</li>
             <li>
-              Download the processed images as a zip file, and use them on your
-              website!
+              Install the{" "}
+              <Link
+                className="text-lime-200 hover:underline"
+                to="/progressify-react"
+              >
+                progressify-react
+              </Link>{" "}
+              library:
+              <br />
+              <code className="text-rose-200 my-4">
+                npm install progressify-react
+              </code>
+            </li>
+            <li>
+              Use the {`<ImageProvider> and <ProgressiveImage>`} components:
             </li>
           </ol>
-          <p className=" text-lg mt-4">
-            Your images will be converted to webp format, and returned in 3
-            copies: full-size, thumbnail, and low-resolution placeholder. An
-            index.json file will be included as well, with urls to the images,
-            their dimensions, and a base64 encoded version of the placeholder
-            image.
-          </p>
-          <p className="text-lg  mt-4">
-            The index contains useful metadata for implementing progressive
-            image loading. With our component, just copy the contents of the zip
-            into your public folder, and use the filename (no extension) as the
-            src for the {`<ProgressiveImage>`} component.
-          </p>
+          <UsageExample />
         </div>
         <div className="w-full bg-rose-200/20 backdrop-blur-sm p-6 rounded-lg">
           <h2 className="text-3xl font-semibold  mb-4">Why Progressify?</h2>
@@ -95,7 +97,10 @@ const ImageProcessor = () => {
       <h1 className="text-4xl my-4 font-bold">Progressify</h1>
 
       <h2 className="text-xl  mb-4">
-        Generate progressive images for your website, fast, easy, and free!
+        Generate progressive images for{" "}
+        <Link className="text-lime-200 hover:underline" to="/progressify-react">
+          progressify-react
+        </Link>
       </h2>
       <hr className="mb-4" />
       <FileUpload
