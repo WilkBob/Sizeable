@@ -68,6 +68,9 @@ const Home = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   to="/resize"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
@@ -91,6 +94,9 @@ const Home = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   to="/webp"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
@@ -114,6 +120,9 @@ const Home = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   to="/progressify"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
@@ -133,6 +142,9 @@ const Home = () => {
               Enhance your React applications with progressive image loading
               using our{" "}
               <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 to={"/progressify-react"}
                 className="text-rose-500 font-semibold hover:underline"
               >

@@ -8,6 +8,9 @@ const Footer = () => {
       <div className="container max-w-6xl mx-auto">
         <div className="mb-4 flex space-x-4 justify-center">
           <Link
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             to="/"
             className="text-rose-50 hover:text-white flex items-center space-x-1"
           >
@@ -15,6 +18,9 @@ const Footer = () => {
             <span>Home</span>
           </Link>
           <Link
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             to="/about"
             className="text-rose-50 hover:text-white flex items-center space-x-1"
           >

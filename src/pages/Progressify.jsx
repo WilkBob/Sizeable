@@ -27,6 +27,9 @@ const Progressify = () => {
               Install the{" "}
               <Link
                 className="text-lime-200 hover:underline"
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 to="/progressify-react"
               >
                 progressify-react
@@ -100,7 +103,13 @@ const ImageProcessor = () => {
 
       <h2 className="text-xl  mb-4">
         Generate progressive images for{" "}
-        <Link className="text-lime-200 hover:underline" to="/progressify-react">
+        <Link
+          className="text-lime-200 hover:underline"
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          to="/progressify-react"
+        >
           progressify-react
         </Link>
       </h2>

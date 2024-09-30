@@ -65,7 +65,13 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaFileImage className="mr-2 text-lime-300" /> WebP Conversion
-              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+              <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                to="/resize"
+                className="text-lime-300 hover:underline ml-2"
+              >
                 {" -Try it!"}
               </Link>
             </h3>
@@ -78,7 +84,13 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaImage className="mr-2 text-lime-300" /> Image Resizing
-              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+              <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                to="/resize"
+                className="text-lime-300 hover:underline ml-2"
+              >
                 {" -Try it!"}
               </Link>
             </h3>
@@ -90,7 +102,13 @@ const About = () => {
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
               <FaSpinner className="mr-2 text-lime-300" /> Progressify
-              <Link to="/resize" className="text-lime-300 hover:underline ml-2">
+              <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                to="/resize"
+                className="text-lime-300 hover:underline ml-2"
+              >
                 {" -Try it!"}
               </Link>
             </h3>
@@ -107,6 +125,9 @@ const About = () => {
           <FaCode className="mr-2 text-rose-500" /> The Progressify Library
           (React)
           <Link
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             to="/progressify-react"
             className="text-lime-300 hover:underline ml-2"
           >

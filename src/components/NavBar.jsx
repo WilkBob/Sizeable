@@ -65,7 +65,13 @@ const NavBar = () => {
   return (
     <nav className="p-4 text-lg" role="navigation" aria-label="Main Navigation">
       <div className="container max-w-6xl mx-auto flex justify-between items-center">
-        <Link to={"/"} className="text-xl font-bold hover:text-rose-300">
+        <Link
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          to={"/"}
+          className="text-xl font-bold hover:text-rose-300"
+        >
           Sizeable
         </Link>
 
@@ -74,6 +80,9 @@ const NavBar = () => {
             <li key={item.to}>
               <Link
                 onClick={closeMenu}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 to={item.to}
                 className={`px-3 py-2 rounded-md transition-colors duration-300 ${
                   location.pathname === item.to
@@ -110,6 +119,9 @@ const NavBar = () => {
                   <Link
                     key={item.to}
                     onClick={closeMenu}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                     to={item.to}
                     className={`block px-4 py-2 text-sm transition-colors duration-300  hover:bg-rose-500 hover:text-white ${
                       index === 0

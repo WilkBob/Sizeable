@@ -34,6 +34,9 @@ export const OtherTools = ({ location }) => {
               <h3 className="text-xl  mb-2">{tool.name}</h3>
               <p className=" mb-4">{tool.description}</p>
               <Link
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 to={tool.link}
                 className="inline-block bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-700 transition-colors duration-300"
               >

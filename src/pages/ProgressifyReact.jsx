@@ -52,6 +52,9 @@ const ProgressifyReact = () => {
           <li className="text-lg">
             A directory of images processed with
             <Link
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               to="/progressify"
               className="text-lime-300 hover:underline ml-2"
             >
