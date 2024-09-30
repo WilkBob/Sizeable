@@ -6,7 +6,10 @@ import NavAvatar from "./NavAvatar";
 const NavBar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const items = [
     { label: "Home", to: "/" },
     { label: "About", to: "/about" },
@@ -80,9 +83,6 @@ const NavBar = () => {
             <li key={item.to}>
               <Link
                 onClick={closeMenu}
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
                 to={item.to}
                 className={`px-3 py-2 rounded-md transition-colors duration-300 ${
                   location.pathname === item.to
@@ -119,9 +119,6 @@ const NavBar = () => {
                   <Link
                     key={item.to}
                     onClick={closeMenu}
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
                     to={item.to}
                     className={`block px-4 py-2 text-sm transition-colors duration-300  hover:bg-rose-500 hover:text-white ${
                       index === 0

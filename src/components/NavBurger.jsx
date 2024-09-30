@@ -49,7 +49,10 @@ const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
     };
   }, [burgerRef, dropdownRef, setIsOpen]);
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="block md:hidden" ref={burgerRef}>
@@ -69,9 +72,6 @@ const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
               <Link
                 onClick={closeMenu}
                 key={item.to}
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
                 to={item.to}
                 className={`block px-4 py-2 text-sm transition-colors duration-300 first:rounded-t-md last:rounded-b-md ${
                   location.pathname === item.to
@@ -94,9 +94,6 @@ const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
               <Link
                 onClick={closeMenu}
                 key={item.to}
-                onClick={() => {
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
                 to={item.to}
                 className={`block px-4 py-2 text-sm transition-colors duration-300 hover:bg-rose-500 hover:text-white last:rounded-b-md ${
                   location.pathname === item.to ? "bg-rose-500" : ""
