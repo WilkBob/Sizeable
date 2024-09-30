@@ -35,8 +35,8 @@ const ProgressifyReact = () => {
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4 px-4">
       <ProgressifyReactHelmet />
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-rose-400 mb-4">
-          Progressify React
+        <h1 className="text-4xl font-mono text-rose-400 mb-4">
+          progressify-react
         </h1>
         <p className="text-xl">
           Enhance your React app with smooth, progressive image loading
