@@ -60,10 +60,13 @@ const Progressify = () => {
           </ul>
           <p className="text-lg  mt-6">
             Want to improve your websites loading speed and user experience?
-            Process your images above, then
-            <a href="#how-to-use" className="text-lime-200 hover:underline">
-              {" use our components"}
-            </a>{" "}
+            Process your images above, then{" "}
+            <Link
+              to="/react-progressify"
+              className="text-lime-200 hover:underline"
+            >
+              {"use our components"}
+            </Link>
             to implement progressive image loading.
           </p>
         </div>
@@ -89,7 +92,7 @@ const ImageProcessor = () => {
     e.preventDefault();
     const query = {
       include_thumbnails: includeThumbnails,
-      thumbnails_size: thumbnailsSize,
+      thumbnail_size: thumbnailsSize,
     };
     processImages(selectedImages, query);
   };

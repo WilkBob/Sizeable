@@ -37,20 +37,19 @@ const Home = () => {
     >
       <div className="container mx-auto max-w-full md:max-w-6xl p-6 text-lg">
         <motion.header
-          className="text-center mb-12 pt-16"
+          className="text-center mb-12 pt-16 min-h-[40vh] flex flex-col justify-center"
           variants={itemVariants}
         >
-          <h1 className="text-6xl font-bold mb-4 text-rose-500">
-            Welcome to Sizeable
+          <h1 className="text-6xl font-bold mb-4">
+            Welcome to <span className="text-rose-400">Sizeable</span>
           </h1>
-          <p className="text-2xl text-gray-300">
+          <p className="text-2xl">
             Your one-stop solution for image resizing, optimization, and
             progressive loading.
           </p>
         </motion.header>
 
         <motion.section className="my-16" variants={itemVariants}>
-          <h2 className="text-3xl mb-8 text-center font-semibold">Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               className="bg-rose-200/20 p-6 rounded-lg shadow-lg flex flex-col"
