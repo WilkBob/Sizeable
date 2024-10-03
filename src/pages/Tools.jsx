@@ -4,6 +4,7 @@ import ProcessForm from "../components/tools/ProcessForm";
 import { AuthContext } from "../components/context/AuthContext";
 import { IoInformationCircle } from "react-icons/io5";
 import { CgGoogle } from "react-icons/cg";
+import HowToUse from "../components/tools/HowToUse";
 
 const Tools = () => {
   const { tool } = useParams();
@@ -102,6 +103,7 @@ const Tools = () => {
       <div key={selectedTool}>
         <ProcessForm processToUse={selectedTool} />
       </div>
+      {tool && <HowToUse tool={tool} />}
     </div>
   );
 };

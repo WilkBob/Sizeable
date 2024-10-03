@@ -50,8 +50,6 @@ const WebpOptions = ({ userQuality, setUserQuality }) => {
 WebpOptions.propTypes = {
   userQuality: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setUserQuality: PropTypes.func.isRequired,
-  userWebp: PropTypes.bool.isRequired,
-  setUserWebp: PropTypes.func.isRequired,
 };
 
 export default WebpOptions;
