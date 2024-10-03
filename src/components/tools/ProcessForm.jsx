@@ -1,13 +1,14 @@
 import { useState } from "react";
+
+import useProcess from "../../hooks/useProcess";
+import PropTypes from "prop-types";
+import ProgressifyOptions from "./progressify/ProgressifyOptions";
+import ResizeOptions from "./resize/ResizeOptions";
+import ProcessButton from "./ProcessButton";
+import DownloadButton from "./DownloadButton";
 import FileUpload from "./FileUpload";
 import ImagePreview from "./ImagePreview";
-import useProcess from "../hooks/useProcess";
-import PropTypes from "prop-types";
-import ProcessButton from "./ProcessButton";
-import ResizeOptions from "./tools/resize/ResizeOptions";
 import Processing from "./Processing";
-import ProgressifyOptions from "./tools/progressify/ProgressifyOptions";
-import DownloadButton from "./DownloadButton";
 
 const ProcessForm = ({ processToUse }) => {
   const { loading, error, outUrl, filename, processImages, reset } =
@@ -17,6 +18,12 @@ const ProcessForm = ({ processToUse }) => {
   const [resizeWidth, setResizeWidth] = useState(500);
   const [thumbSize, setThumbSize] = useState(500);
   const [processedNumber, setProcessedNumber] = useState(0);
+
+  const reallyReset = () => {
+    reset();
+    setImages([]);
+    setProcessedNumber(0);
+  };
 
   const handleUpload = async (e) => {
     e.preventDefault();
@@ -36,28 +43,9 @@ const ProcessForm = ({ processToUse }) => {
   };
   return (
     <form
-      className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2"
+      className="bg-rose-200/20 rounded-lg backdrop-blur-[1px] flex flex-col p-2 md:p-4"
       onSubmit={handleUpload}
     >
-      {!outUrl && (
-        <>
-          {processToUse === "resize" && (
-            <ResizeOptions
-              setUserMaxWidth={setResizeWidth}
-              setUserWebp={setWebp}
-              userMaxWidth={resizeWidth}
-              userWebp={webp}
-            />
-          )}
-          {processToUse === "progressify" && (
-            <ProgressifyOptions
-              setThumbnailSize={setThumbSize}
-              thumbnailSize={thumbSize}
-            />
-          )}
-        </>
-      )}
-
       {loading ? (
         <Processing />
       ) : (
@@ -78,12 +66,32 @@ const ProcessForm = ({ processToUse }) => {
               processedNumber={processedNumber}
               outUrl={outUrl}
               filename={filename}
-              reset={reset}
+              reset={reallyReset}
             />
           )}
         </>
       )}
-      {!outUrl && <ProcessButton disabled={images.length === 0 || loading} />}
+      {!outUrl && (
+        <>
+          {processToUse === "resize" && (
+            <ResizeOptions
+              setUserMaxWidth={setResizeWidth}
+              setUserWebp={setWebp}
+              userMaxWidth={resizeWidth}
+              userWebp={webp}
+            />
+          )}
+          {processToUse === "progressify" && (
+            <ProgressifyOptions
+              setThumbnailSize={setThumbSize}
+              thumbnailSize={thumbSize}
+            />
+          )}
+        </>
+      )}
+      {!outUrl && images.length > 0 && (
+        <ProcessButton disabled={images.length === 0 || loading} />
+      )}
     </form>
   );
 };

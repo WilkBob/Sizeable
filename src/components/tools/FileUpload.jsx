@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 const FileUpload = ({ setFile, onChange, multiple = false }) => {
   const [dragActive, setDragActive] = useState(false);
@@ -53,7 +53,7 @@ const FileUpload = ({ setFile, onChange, multiple = false }) => {
   return (
     <div className="w-full">
       <motion.div
-        className={`relative p-20 mt-4 border-2 border-dashed rounded-lg transition-colors ${
+        className={`relative p-20 mt-2 border-2 border-dashed rounded-lg transition-colors ${
           dragActive
             ? "border-rose-400 bg-rose-100/20"
             : "border-gray-300 bg-rose-200/20"

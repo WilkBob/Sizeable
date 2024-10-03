@@ -1,5 +1,5 @@
 import { useContext, useState, useRef, useEffect } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import {
   FaUserCircle,
   FaSignOutAlt,
@@ -16,7 +16,7 @@ const NavAvatar = () => {
     try {
       await login();
     } catch (error) {
-      //console.error("Failed to log in", error);
+      console.error("Failed to log in", error);
     }
   };
 
@@ -25,7 +25,7 @@ const NavAvatar = () => {
       await logout();
       setIsOpen(false);
     } catch (error) {
-      //console.error("Failed to log out", error);
+      console.error("Failed to log out", error);
     }
   };
 

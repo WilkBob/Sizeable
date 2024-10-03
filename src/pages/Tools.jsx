@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import ProcessForm from "../components/ProcessForm";
+import ProcessForm from "../components/tools/ProcessForm";
 
 const Tools = () => {
   const { tool } = useParams();
@@ -13,7 +13,7 @@ const Tools = () => {
     },
     { name: "WebP", value: "webp", subtext: "Convert images to WebP format" },
     {
-      name: "Progressify",
+      name: "Progressify✨",
       value: "progressify",
       subtext: "Progressive Images for your React app",
     },
@@ -21,6 +21,19 @@ const Tools = () => {
   const [selectedTool, setSelectedTool] = useState("resize");
 
   useEffect(() => {
+    const tools = [
+      {
+        name: "Resize",
+        value: "resize",
+        subtext: "Change image dimensions",
+      },
+      { name: "WebP", value: "webp", subtext: "Convert images to WebP format" },
+      {
+        name: "Progressify",
+        value: "progressify",
+        subtext: "Progressive Images for your React app",
+      },
+    ];
     const validTool = tools.find((t) => t.value === tool);
     if (validTool) {
       setSelectedTool(validTool.value);
@@ -46,7 +59,7 @@ const Tools = () => {
         </p>
       </header>
 
-      <div className="flex space-x-1 rounded-xl bg-blue-900/20 p-1 mb-6">
+      <div className="flex space-x-1 rounded-xl bg-rose-200/20 p-1 mb-6">
         {tools.map((tool) => (
           <button
             key={tool.value}

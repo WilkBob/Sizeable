@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import NavAvatar from "./NavAvatar";
 
-const NavBurger = ({ items, location, isOpen, setIsOpen }) => {
+const NavBurger = ({ items }) => {
+  const [isOpen, setIsOpen] = useState(false);
   const burgerRef = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -64,26 +65,28 @@ const NavBurger = ({ items, location, isOpen, setIsOpen }) => {
       </button>
       {isOpen && (
         <div
-          className="absolute right-2 mt-2 w-48 origin-top-right rounded-md bg-rose-900 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          className="absolute right-2 mt-2 w-48 origin-top-right rounded-md bg-rose-950 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
           ref={dropdownRef}
         >
           <ul>
             {items.map((item) => (
-              <Link
+              <NavLink
                 onClick={closeMenu}
                 key={item.to}
                 to={item.to}
-                className={`block px-4 py-2 text-sm transition-colors duration-300 first:rounded-t-md last:rounded-b-md ${
-                  location.pathname === item.to
-                    ? "bg-rose-500 text-white"
-                    : "hover:bg-rose-500 hover:text-white"
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-2 text-sm transition-colors duration-300 ${
+                    isActive
+                      ? "text-rose-300 bg-rose-800"
+                      : "text-gray-300 hover:text-white hover:bg-rose-700"
+                  }`
+                }
               >
                 <li>{item.label}</li>
-              </Link>
+              </NavLink>
             ))}
 
-            <li className=" w-full px-4 py-2 text-sm transition-colors duration-300 flex justify-center">
+            <li className="w-full px-4 py-2 text-sm transition-colors duration-300 flex justify-center">
               <NavAvatar />
             </li>
           </ul>
@@ -100,9 +103,6 @@ NavBurger.propTypes = {
       label: PropTypes.string.isRequired,
     })
   ).isRequired,
-  location: PropTypes.object.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  setIsOpen: PropTypes.func.isRequired,
 };
 
 export default NavBurger;

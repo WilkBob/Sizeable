@@ -17,7 +17,7 @@ const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
   return (
     <>
       {outUrl && (
-        <div className="mt-6 rounded-lg shadow-md p-6 flex flex-col items-center">
+        <div className="  p-6 flex flex-col items-center">
           <p className="text-lg font-semibold mb-4">Your file is ready!</p>
           <motion.a
             href={outUrl}
@@ -57,8 +57,15 @@ const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
             </motion.div>
           </motion.a>
           <p className="mt-4 text-sm text-gray-500">
-            {processedNumber > 1 ? "Zipped archive" : "Single file"}
+            {processedNumber > 1 ? "Zipped archive: " : "Single file: "}
+            {filename}
           </p>
+          <button
+            className="mt-4 text-sm text-gray-500 underline"
+            onClick={reset}
+          >
+            Convert more
+          </button>
         </div>
       )}
     </>
