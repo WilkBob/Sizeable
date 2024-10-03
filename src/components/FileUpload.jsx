@@ -2,28 +2,20 @@ import { useCallback, useContext, useState } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { AuthContext } from "./context/AuthContext";
-import { CgClose } from "react-icons/cg";
 
-const FileUpload = ({
-  setFile,
-  onChange,
-  multiple = false,
-  loaded = false,
-}) => {
+const FileUpload = ({ setFile, onChange, multiple = false }) => {
   const [dragActive, setDragActive] = useState(false);
-  const [previewFiles, setPreviewFiles] = useState([]);
-  const [fileNumber, setFileNumber] = useState(0);
+
   const { currentUser } = useContext(AuthContext);
   const isLoggedIn = currentUser !== null;
 
   const handleFile = useCallback(
-    (files) => {
-      setFile(files[0]);
-      setFileNumber(files.length);
-      setPreviewFiles(Array.from(files).slice(0, 3));
+    (fs) => {
+      const files = Array.from(fs);
+      setFile(isLoggedIn && multiple ? files : [files[0]]);
       onChange({ target: { files } });
     },
-    [setFile, onChange]
+    [setFile, onChange, isLoggedIn, multiple]
   );
 
   const handleDrag = useCallback((e) => {
@@ -61,7 +53,7 @@ const FileUpload = ({
   return (
     <div className="w-full">
       <motion.div
-        className={`relative p-6 mt-4 border-2 border-dashed rounded-lg transition-colors ${
+        className={`relative p-20 mt-4 border-2 border-dashed rounded-lg transition-colors ${
           dragActive
             ? "border-rose-400 bg-rose-100/20"
             : "border-gray-300 bg-rose-200/20"
@@ -99,28 +91,6 @@ const FileUpload = ({
           <p className="text-sm">Drop your files here or click to upload</p>
         </div>
       </motion.div>
-      {previewFiles.length > 0 && !loaded && (
-        <div className="mt-4 flex justify-center">
-          <div className="relative">
-            <img
-              src={URL.createObjectURL(previewFiles[0])}
-              alt="Preview"
-              className="object-cover rounded-lg shadow-md bg-rose-200/20"
-            />
-            {previewFiles.length > 1 && (
-              <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white text-lg">
-                +{fileNumber - 1}
-              </div>
-            )}
-            <button
-              className="absolute top-2 right-2 p-1 bg-white bg-opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50 flex text-center justify-center align-middle"
-              onClick={() => setPreviewFiles([])}
-            >
-              <CgClose size={16} />
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -3,11 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
+import Tools from "./pages/Tools";
 
 const Home = lazy(() => import("./pages/Home"));
-const Progressify = lazy(() => import("./pages/Progressify"));
-const Resize = lazy(() => import("./pages/Resize"));
-const Webp = lazy(() => import("./pages/Webp"));
 const About = lazy(() => import("./pages/About"));
 const ProgressifyReact = lazy(() => import("./pages/ProgressifyReact"));
 
@@ -20,11 +18,10 @@ function App() {
           {/* Customary */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-
-          {/* Tools */}
-          <Route path="/resize" element={<Resize />} />
-          <Route path="/progressify" element={<Progressify />} />
-          <Route path="/webp" element={<Webp />} />
+          {/* Image Tool */}
+          <Route path="/tools/:tool" element={<Tools />} />
+          <Route path="/tools" element={<Tools />} />
+          {/* Image Library*/}
           <Route path="/progressify-react" element={<ProgressifyReact />} />
 
           <Route path="*" element={<Home />} />

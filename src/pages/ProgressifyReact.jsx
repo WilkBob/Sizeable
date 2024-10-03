@@ -4,7 +4,7 @@ import { FaGithub, FaNpm } from "react-icons/fa";
 import ProgressifyReactHelmet from "./Helmets/ProgressifyReactHelmet";
 import CodeBlock from "../components/progressifyreact/CodeBlock";
 
-import FullUsage from "../components/FullUsage";
+import FullUsage from "../components/progressifyreact/FullUsage";
 import APIReference from "../components/progressifyreact/APIReference";
 import Features from "../components/progressifyreact/Features";
 
@@ -25,7 +25,7 @@ const ProgressifyReact = () => {
             Enhance your React app with smooth progressive image loading
           </p>
         </motion.div>
-        <div className="flex justify-center space-x-6 mt-6">
+        <div className="flex justify-center space-x-6 mt-8">
           <a
             href="https://www.npmjs.com/package/progressify-react"
             target="_blank"

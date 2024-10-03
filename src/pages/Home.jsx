@@ -70,7 +70,7 @@ const Home = () => {
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  to="/resize"
+                  to="/tools/resize"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
                   <FaImage className="mr-2" /> Resize Images
@@ -96,7 +96,7 @@ const Home = () => {
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  to="/webp"
+                  to="/tools/webp"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
                   <FaFileImage className="mr-2" /> Convert to WebP
@@ -122,7 +122,7 @@ const Home = () => {
                   onClick={() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  to="/progressify"
+                  to="/tools/progressify"
                   className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 text-center flex items-center justify-center"
                 >
                   <FaSpinner className="mr-2" /> Progressify

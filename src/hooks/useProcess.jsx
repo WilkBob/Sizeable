@@ -1,7 +1,5 @@
 import { useState, useCallback } from "react";
-import resize from "../API/resize";
-import webp from "../API/webp";
-
+import processImagesAPI from "../API/API";
 const useProcess = (endpoint) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -15,7 +13,8 @@ const useProcess = (endpoint) => {
       //console.log(images, query);
 
       try {
-        const [url, filename] = await (endpoint === "resize" ? resize : webp)(
+        const [url, filename] = await processImagesAPI(
+          endpoint, // resize, resize-multiple, webp, webp-multiple, or component. Crazy, i know.
           images,
           query
         );
@@ -33,6 +32,8 @@ const useProcess = (endpoint) => {
   const reset = () => {
     setOutUrl(null);
     setError(null);
+    setFilename(null);
+    setLoading(false);
   };
 
   return { loading, error, outUrl, filename, processImages, reset };

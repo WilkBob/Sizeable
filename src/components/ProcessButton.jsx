@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ProcessButton = ({ disabled, loading }) => {
+const ProcessButton = ({ disabled }) => {
   const buttonClasses = `mt-4 px-4 py-2 text-white font-semibold rounded-lg shadow-mdfocus:outline-none focus:ring-2 focus:ring-opacity-75 ${
     disabled
       ? "cursor-not-allowed bg-gray-500 focus:ring-gray-400 hover:bg-gray-500"
@@ -9,14 +9,13 @@ const ProcessButton = ({ disabled, loading }) => {
 
   return (
     <button type="submit" className={buttonClasses} disabled={disabled}>
-      {loading ? "Processing..." : "Upload and Process"}
+      {"Upload and Process"}
     </button>
   );
 };
 
 ProcessButton.propTypes = {
   disabled: PropTypes.bool.isRequired,
-  loading: PropTypes.bool.isRequired,
 };
 
 export default ProcessButton;

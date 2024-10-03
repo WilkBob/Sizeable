@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import NavAvatar from "./NavAvatar";
 
-const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
+const NavBurger = ({ items, location, isOpen, setIsOpen }) => {
   const burgerRef = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -83,25 +83,6 @@ const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
               </Link>
             ))}
 
-            <li
-              className="block w-full px-4 py-2 text-sm transition-colors duration-300 border-t font-bold"
-              onClick={() => setIsOpen(false)}
-            >
-              Tools:
-            </li>
-
-            {toolsItems.map((item) => (
-              <Link
-                onClick={closeMenu}
-                key={item.to}
-                to={item.to}
-                className={`block px-4 py-2 text-sm transition-colors duration-300 hover:bg-rose-500 hover:text-white last:rounded-b-md ${
-                  location.pathname === item.to ? "bg-rose-500" : ""
-                }`}
-              >
-                <li>-{item.label}</li>
-              </Link>
-            ))}
             <li className=" w-full px-4 py-2 text-sm transition-colors duration-300 flex justify-center">
               <NavAvatar />
             </li>
@@ -114,12 +95,6 @@ const NavBurger = ({ items, toolsItems, location, isOpen, setIsOpen }) => {
 
 NavBurger.propTypes = {
   items: PropTypes.arrayOf(
-    PropTypes.shape({
-      to: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  toolsItems: PropTypes.arrayOf(
     PropTypes.shape({
       to: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
