@@ -8,7 +8,7 @@ const ImagePreview = ({ previewFiles, setPreviewFiles }) => {
     <>
       {previewFiles.length > 0 && (
         <div className="mt-4 flex justify-center">
-          <div className="relative w-64 h-64">
+          <div className="relative max-w-[400px] max-h-[400px]">
             <img
               src={URL.createObjectURL(previewFiles[0])}
               alt="Preview"
@@ -23,7 +23,12 @@ const ImagePreview = ({ previewFiles, setPreviewFiles }) => {
               className="absolute top-2 right-2 p-1 bg-white bg-opacity-75 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50 flex text-center justify-center items-center hover:bg-opacity-100 transition duration-300"
               onClick={() => setPreviewFiles([])}
               whileHover={{ scale: 1.2 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                duration: 0.3,
+              }}
             >
               <CgClose
                 size={20}

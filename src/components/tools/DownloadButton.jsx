@@ -1,7 +1,7 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
-import { FiDownload, FiArchive, FiCheck } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { FiDownload, FiArchive, FiCheck, FiRefreshCw } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -9,66 +9,103 @@ const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
   const handleClick = () => {
     setIsClicked(true);
     setTimeout(() => setIsClicked(false), 2000);
-    reset();
   };
 
   const IconComponent = processedNumber > 1 ? FiArchive : FiDownload;
 
   return (
-    <>
+    <AnimatePresence>
       {outUrl && (
-        <div className="  p-6 flex flex-col items-center">
-          <p className="text-lg font-semibold mb-4">Your file is ready!</p>
+        <motion.div
+          className=" p-6 my-6 flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.p
+            className="text-xl font-semibold mb-4 text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Your file is ready!
+          </motion.p>
           <motion.a
             href={outUrl}
             download={filename}
             onClick={handleClick}
-            className="inline-block"
+            className="group relative inline-block"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="w-16 h-16 flex items-center justify-center cursor-pointer bg-rose-500 rounded-full text-white"
+              className="cursor-pointer bg-rose-500 rounded-full text-white shadow-lg group-hover:bg-rose-600 transition-colors duration-300 flex items-center justify-center space-x-2 p-4"
               animate={{
-                backgroundColor: isClicked ? "#10B981" : "#F43F5E",
+                backgroundColor: isClicked ? "#10B981" : undefined,
               }}
-              transition={{ duration: 0.3 }}
             >
-              <motion.div
-                animate={{
-                  opacity: isClicked ? 0 : 1,
-                  scale: isClicked ? 0.8 : 1,
-                }}
-              >
-                <IconComponent size={24} />
-              </motion.div>
-              {isClicked && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  className=""
-                >
-                  <FiCheck size={24} />
-
-                  {isClicked ? "Downloading!!" : "Download"}
-                </motion.div>
-              )}
+              <AnimatePresence mode="wait">
+                {isClicked ? (
+                  <motion.div
+                    key="check"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 30,
+                    }}
+                  >
+                    <FiCheck size={32} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="icon"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ scale: 0 }}
+                  >
+                    <IconComponent size={32} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
+            <motion.span
+              className="text-sm text-white font-medium"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
+              {isClicked ? "Downloading!" : "Download"}
+            </motion.span>
           </motion.a>
-          <p className="mt-4 text-sm text-gray-500">
-            {processedNumber > 1 ? "Zipped archive: " : "Single file: "}
-            {filename}
-          </p>
-          <button
-            className="mt-4 text-sm text-gray-500 underline"
-            onClick={reset}
+          <motion.p
+            className="mt-12 text-sm text-gray-400 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            Convert more
-          </button>
-        </div>
+            {processedNumber > 1 ? "Zipped archive: " : "Single file: "}
+            <br />
+            <span className="font-medium text-gray-300">{filename}</span>
+          </motion.p>
+          <motion.button
+            className="mt-6 px-4 py-2 bg-gray-700 text-white rounded-full flex items-center space-x-2 hover:bg-gray-600 transition-colors duration-300"
+            onClick={reset}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <FiRefreshCw size={16} />
+            <span>Convert more</span>
+          </motion.button>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

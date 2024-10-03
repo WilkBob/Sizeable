@@ -21,7 +21,7 @@ const processImagesAPI = async (type, images, query) => {
 
   const endpoint =
     type === "progressify"
-      ? `/component`
+      ? `component`
       : images.length === 1
       ? `${type}/`
       : `${type}-multiple/`;

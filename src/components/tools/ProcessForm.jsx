@@ -9,6 +9,9 @@ import DownloadButton from "./DownloadButton";
 import FileUpload from "./FileUpload";
 import ImagePreview from "./ImagePreview";
 import Processing from "./Processing";
+import { BiError } from "react-icons/bi";
+import { FiRefreshCw } from "react-icons/fi";
+import WebpOptions from "./webp/WebpOptions";
 
 const ProcessForm = ({ processToUse }) => {
   const { loading, error, outUrl, filename, processImages, reset } =
@@ -17,6 +20,7 @@ const ProcessForm = ({ processToUse }) => {
   const [webp, setWebp] = useState(true);
   const [resizeWidth, setResizeWidth] = useState(500);
   const [thumbSize, setThumbSize] = useState(500);
+  const [userQuality, setUserQuality] = useState(80);
   const [processedNumber, setProcessedNumber] = useState(0);
 
   const reallyReset = () => {
@@ -38,6 +42,11 @@ const ProcessForm = ({ processToUse }) => {
       query.include_thumbnails = true;
       query.max_width = 200;
     }
+
+    if (processToUse === "webp") {
+      query.quality = userQuality;
+    }
+
     setProcessedNumber(images.length);
     await processImages(images, query);
   };
@@ -87,10 +96,30 @@ const ProcessForm = ({ processToUse }) => {
               thumbnailSize={thumbSize}
             />
           )}
+          {processToUse === "webp" && (
+            <WebpOptions
+              userQuality={userQuality}
+              setUserQuality={setUserQuality}
+            />
+          )}
         </>
       )}
       {!outUrl && images.length > 0 && (
         <ProcessButton disabled={images.length === 0 || loading} />
+      )}
+      {error && (
+        <div className="bg-rose-950/50 text-white p-4 rounded-lg mt-4 flex items-center justify-between">
+          <div className="flex gap-2">
+            <BiError className="text-2xl" />
+            <strong>Error:</strong> {error}
+          </div>
+          <button
+            onClick={() => reallyReset()}
+            className="ml-4 text-white hover:text-gray-300 focus:outline-none flex items-center gap-1"
+          >
+            <span>Try Again</span> <FiRefreshCw size={20} />
+          </button>
+        </div>
       )}
     </form>
   );

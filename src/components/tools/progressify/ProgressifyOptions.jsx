@@ -22,22 +22,24 @@ const ProgressifyOptions = ({ thumbnailSize, setThumbnailSize }) => {
         <input
           type="range"
           min="100"
-          max="2000"
+          max="650"
           value={thumbnailSize}
           onChange={(e) => setThumbnailSize(e.target.value)}
           className="w-full h-2 bg-gray-700 accent-rose-500 rounded-lg appearance-none cursor-pointer"
+          required
         />
         <input
+          required
           type="number"
           value={thumbnailSize}
           onChange={(e) => setThumbnailSize(e.target.value)}
           min="100"
-          max="2000"
+          max="650"
           className="w-20 p-2 text-center bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
         />
         <span className="text-gray-400">px</span>
       </div>
-      <p className="mt-2 text-sm text-gray-400">Width range: 100px - 2000px</p>
+      <p className="mt-2 text-sm text-gray-400">Width range: 100px - 650px</p>
     </motion.div>
   );
 };
