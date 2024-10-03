@@ -66,7 +66,7 @@ const Progressify = () => {
               className="text-lime-200 hover:underline"
             >
               {"use our components"}
-            </Link>
+            </Link>{" "}
             to implement progressive image loading.
           </p>
         </div>

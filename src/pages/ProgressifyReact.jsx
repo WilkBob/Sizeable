@@ -12,18 +12,19 @@ const ProgressifyReact = () => {
   return (
     <div className="flex flex-col container mx-auto max-w-full md:max-w-6xl my-4 px-4">
       <ProgressifyReactHelmet />
-      <motion.header
-        className="text-center mb-12 min-h-[50vh] flex flex-col justify-center"
-        initial={{ opacity: 0.8, filter: "blur(10px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ duration: 2 }}
-      >
-        <h1 className="text-5xl font-mono text-rose-400 mb-4">
-          progressify-react
-        </h1>
-        <p className="text-2xl">
-          Enhance your React app with smooth progressive image loading
-        </p>
+      <header className="text-center mb-12 min-h-[50vh] flex flex-col justify-center">
+        <motion.div
+          initial={{ opacity: 0.8, filter: "blur(10px)" }}
+          animate={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 2 }}
+        >
+          <h1 className="text-5xl font-mono text-rose-400 mb-4">
+            progressify-react
+          </h1>
+          <p className="text-2xl">
+            Enhance your React app with smooth progressive image loading
+          </p>
+        </motion.div>
         <div className="flex justify-center space-x-6 mt-6">
           <a
             href="https://www.npmjs.com/package/progressify-react"
@@ -44,7 +45,7 @@ const ProgressifyReact = () => {
             <span className="text-lg font-semibold">GitHub</span>
           </a>
         </div>
-      </motion.header>
+      </header>
       <Features />
       <section className="mb-12">
         <h2 className="text-3xl font-semibold text-lime-300 mb-6">
