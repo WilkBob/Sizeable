@@ -123,6 +123,7 @@ const ImageProcessor = () => {
         }}
         onChange={handleFileChange}
         multiple
+        loaded={false}
       />
 
       <div className="my-4">

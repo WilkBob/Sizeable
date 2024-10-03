@@ -10,6 +10,7 @@ import { OtherTools } from "../components/resize/OtherTools";
 import NotLoggedIn from "../components/NotLoggedIn";
 import useProcess from "../hooks/useProcess";
 import ResizeHelmet from "./Helmets/ResizeHelmet";
+import Processing from "../components/Processing";
 
 const Resize = () => {
   const [file, setFile] = useState(null);
@@ -46,6 +47,7 @@ const Resize = () => {
         </h2>
         <hr className="mb-4" />
         <FileUpload
+          loading={loading}
           file={file}
           setFile={setFile}
           onChange={(e) => {
@@ -56,15 +58,21 @@ const Resize = () => {
             setProcessedMultiple(multiple);
           }}
           multiple
+          loaded={outUrl && !loading}
         />
-        <ResizeOptions
-          userMaxWidth={userMaxWidth}
-          setUserMaxWidth={setUserMaxWidth}
-          userWebp={userWebp}
-          setUserWebp={setUserWebp}
-        />
-        <ProcessButton disabled={!file || loading} loading={loading} />
-        <NotLoggedIn />
+        {!loading && !outUrl && (
+          <>
+            <ResizeOptions
+              userMaxWidth={userMaxWidth}
+              setUserMaxWidth={setUserMaxWidth}
+              userWebp={userWebp}
+              setUserWebp={setUserWebp}
+            />
+            <ProcessButton disabled={!file || loading} loading={loading} />
+            <NotLoggedIn />
+          </>
+        )}
+        {loading && <Processing />}
 
         {outUrl && processedMultiple && (
           <a
