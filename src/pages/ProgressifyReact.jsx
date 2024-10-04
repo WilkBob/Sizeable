@@ -63,7 +63,7 @@ const ProgressifyReact = () => {
             </Link>
           </li>
           <li className="text-lg">
-            A React application with version 18.0 or higher
+            A React application with version 16.4 or higher
           </li>
         </ul>
       </section>
