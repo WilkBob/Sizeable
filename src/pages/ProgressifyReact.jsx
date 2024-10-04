@@ -56,7 +56,7 @@ const ProgressifyReact = () => {
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              to="/progressify"
+              to="/tools/progressify"
               className="text-lime-300 hover:underline ml-2"
             >
               Progressify
