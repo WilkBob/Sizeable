@@ -70,7 +70,7 @@ const About = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className=" hover:underline ml-2"
+                className=" hover:underline ml-2 text-lime-300 hover:text-lime-200"
               >
                 {" -Try it!"}
               </Link>
@@ -89,7 +89,7 @@ const About = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className=" hover:underline ml-2"
+                className=" hover:underline ml-2 text-lime-300 hover:text-lime-200"
               >
                 {" -Try it!"}
               </Link>
@@ -107,14 +107,14 @@ const About = () => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className=" hover:underline ml-2"
+                className=" hover:underline ml-2 text-lime-300 hover:text-lime-200"
               >
                 {" -Try it!"}
               </Link>
             </h3>
             <p>
-              Our progressive image loading tool that creates a smooth,
-              fast-loading experience for your users.
+              Our progressive image tool creates optimized versions of your
+              images, ready for use with <code>progressify-react</code>.
             </p>
           </motion.li>
         </ul>
@@ -122,21 +122,24 @@ const About = () => {
 
       <motion.section className="mb-8" variants={itemVariants}>
         <h2 className="text-2xl font-semibold mb-4 flex items-center">
-          <FaCode className="mr-2 text-rose-500" /> The Progressify Library
-          (React)
+          <FaCode className="mr-2 text-rose-500" /> The
+          <code className="mx-3 font-extralight"> progressify-react </code>
+          Library
           <Link
             onClick={() => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             to="/progressify-react"
-            className=" hover:underline ml-2"
+            className=" hover:underline ml-2 text-lime-300 hover:text-lime-200"
           >
             {" -Get Started!"}
           </Link>
         </h2>
         <p className="mb-4">
-          The Progressify library is a React component designed to work
-          seamlessly with images processed by our Progressify tool. It offers:
+          Enhance your React applications with progressive image loading using
+          the <code>progressify-react</code> library. This library allows you to
+          easily integrate progressive images into your React app, improving
+          performance and user experience.
         </p>
         <ul className="list-disc pl-6 mb-4">
           <motion.li variants={itemVariants}>

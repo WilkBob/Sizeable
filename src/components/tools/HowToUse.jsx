@@ -35,10 +35,15 @@ const HowToUse = ({ tool }) => {
         "Click 'Process' to create progressive versions",
         "Download your images. The thumbnails will be included in a zip file.",
         <>
+          {"Copy the images to your React app's"}
+          <code> public </code>
+          {"folder"}
+        </>,
+        <>
           {
             <>
               Use{" "}
-              <Link to="/progressify-react" className="text-rose-400">
+              <Link to="/progressify-react" className="text-lime-300">
                 progressify-react
               </Link>{" "}
               to display the images in your React app.
