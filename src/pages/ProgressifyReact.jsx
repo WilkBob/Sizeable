@@ -48,9 +48,7 @@ const ProgressifyReact = () => {
       </header>
       <Features />
       <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-lime-300 mb-6">
-          - Requirements
-        </h2>
+        <h2 className="text-3xl font-semibold  mb-6">- Requirements</h2>
         <ul className="list-disc pl-6">
           <li className="text-lg">
             A directory of images processed with
@@ -71,9 +69,7 @@ const ProgressifyReact = () => {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-3xl font-semibold text-lime-300 mb-6">
-          - Installation
-        </h2>
+        <h2 className="text-3xl font-semibold  mb-6">- Installation</h2>
         <CodeBlock code="npm install progressify-react" />
       </section>
       <FullUsage />

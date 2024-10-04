@@ -64,13 +64,13 @@ const About = () => {
         <ul className="list-none pl-6">
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
-              <FaFileImage className="mr-2 text-lime-300" /> WebP Conversion
+              <FaFileImage className="mr-2 " /> WebP Conversion
               <Link
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className="text-lime-300 hover:underline ml-2"
+                className=" hover:underline ml-2"
               >
                 {" -Try it!"}
               </Link>
@@ -83,13 +83,13 @@ const About = () => {
           </motion.li>
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
-              <FaImage className="mr-2 text-lime-300" /> Image Resizing
+              <FaImage className="mr-2 " /> Image Resizing
               <Link
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className="text-lime-300 hover:underline ml-2"
+                className=" hover:underline ml-2"
               >
                 {" -Try it!"}
               </Link>
@@ -101,13 +101,13 @@ const About = () => {
           </motion.li>
           <motion.li className="mb-4" variants={itemVariants}>
             <h3 className="text-xl font-semibold mb-2 flex items-center">
-              <FaSpinner className="mr-2 text-lime-300" /> Progressify
+              <FaSpinner className="mr-2 " /> Progressify
               <Link
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 to="/resize"
-                className="text-lime-300 hover:underline ml-2"
+                className=" hover:underline ml-2"
               >
                 {" -Try it!"}
               </Link>
@@ -129,7 +129,7 @@ const About = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             to="/progressify-react"
-            className="text-lime-300 hover:underline ml-2"
+            className=" hover:underline ml-2"
           >
             {" -Get Started!"}
           </Link>

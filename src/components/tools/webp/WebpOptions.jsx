@@ -36,8 +36,8 @@ const WebpOptions = ({ userQuality, setUserQuality }) => {
           className="w-20 p-2 text-center bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
         />
       </div>
-      <p className="mt-2 text-lg text-gray-400">
-        Range 0 - 100
+      <p className="mt-2 text-sm text-gray-400">
+        Range: 0 - 100
         {userQuality < 80 && (
           <span className="text-rose-400">
             <IoInformationCircle className="inline text-xl mx-2" />

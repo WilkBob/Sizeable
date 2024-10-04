@@ -7,7 +7,7 @@ import UsageExample from "./progressify/UsageExample";
 const HowToUse = ({ tool }) => {
   const toolInfo = {
     resize: {
-      icon: <FiMaximize className="text-rose-500" size={24} />,
+      icon: <FiMaximize className="text-rose-400" size={24} />,
       title: "How to Resize Images",
       steps: [
         "Upload your image(s) using the dropzone above",
@@ -17,7 +17,7 @@ const HowToUse = ({ tool }) => {
       ],
     },
     webp: {
-      icon: <FiImage className="text-rose-500" size={24} />,
+      icon: <FiImage className="text-rose-400" size={24} />,
       title: "How to Convert to WebP",
       steps: [
         "Upload your image(s) using the dropzone above",
@@ -27,7 +27,7 @@ const HowToUse = ({ tool }) => {
       ],
     },
     progressify: {
-      icon: <FiDownload className="text-rose-500" size={24} />,
+      icon: <FiDownload className="text-rose-400" size={24} />,
       title: "How to Use Progressify",
       steps: [
         "Upload your image(s) using the dropzone above",
@@ -38,7 +38,7 @@ const HowToUse = ({ tool }) => {
           {
             <>
               Use{" "}
-              <Link to="/progressify-react" className="text-rose-500">
+              <Link to="/progressify-react" className="text-rose-400">
                 progressify-react
               </Link>{" "}
               to display the images in your React app.

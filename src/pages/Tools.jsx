@@ -5,6 +5,7 @@ import { AuthContext } from "../components/context/AuthContext";
 import { IoInformationCircle } from "react-icons/io5";
 import { CgGoogle } from "react-icons/cg";
 import HowToUse from "../components/tools/HowToUse";
+import ToolsHelmet from "./Helmets/ToolsHelmet";
 
 const Tools = () => {
   const { tool } = useParams();
@@ -48,6 +49,7 @@ const Tools = () => {
 
   return (
     <div className="text-lg flex flex-col container mx-auto max-w-full md:max-w-6xl md:p-6">
+      <ToolsHelmet />
       <header className="text-center mb-12 pt-16 min-h-[20vh] flex flex-col justify-center">
         <h1 className="text-6xl font-bold mb-4">
           Welcome to <span className="text-rose-400">Sizeable</span>

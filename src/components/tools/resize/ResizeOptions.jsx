@@ -18,7 +18,7 @@ const ResizeOptions = ({
       transition={{ duration: 0.3 }}
     >
       <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-        <FiImage className="mr-2" />
+        <FiImage className="mr-2 text-rose-400" />
         Width (px){" "}
         <span className="text-gray-400 ml-2 text-sm">
           - Your images will be scaled proportionally to this width
