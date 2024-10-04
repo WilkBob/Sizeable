@@ -10,8 +10,8 @@ const ProgressifyOptions = ({ thumbnailSize, setThumbnailSize }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-        <FiImage className="mr-2" />
+      <h3 className="text-xl font-semibold mb-6 text-white flex flex-wrap items-center">
+        <FiImage className="mr-2 text-2xl text-rose-400" />
         Thumbnail Size{" "}
         <span className="text-gray-400 ml-2 text-sm">
           - Consider where you&apos;ll be displaying smaller versions of your

@@ -11,17 +11,11 @@ const WebpOptions = ({ userQuality, setUserQuality }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <h3 className="text-xl font-semibold mb-6 text-white flex items-center space-x-2">
+      <h3 className="text-xl font-semibold mb-6 text-white flex flex-wrap items-center space-x-2">
         <FiImage className="text-2xl text-rose-400" />
         <span>Quality</span>
-        <span className="text-gray-400 ml-2 text-sm flex gap-2">
-          - Your images will be compressed to this quality.{" "}
-          {userQuality < 80 && (
-            <span className="text-rose-400 flex gap-2">
-              <IoInformationCircle />
-              Low quality may result in visible artifacts.
-            </span>
-          )}
+        <span className="text-gray-400 ml-2 text-sm gap-2">
+          - Your images will be compressed to this quality.
         </span>
       </h3>
       <div className="flex items-center space-x-4">
@@ -42,7 +36,15 @@ const WebpOptions = ({ userQuality, setUserQuality }) => {
           className="w-20 p-2 text-center bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
         />
       </div>
-      <p className="mt-2 text-sm text-gray-400">Range 0 - 100</p>
+      <p className="mt-2 text-lg text-gray-400">
+        Range 0 - 100
+        {userQuality < 80 && (
+          <span className="text-rose-400">
+            <IoInformationCircle className="inline text-xl mx-2" />
+            Low quality may result in visible artifacts.
+          </span>
+        )}
+      </p>
     </motion.div>
   );
 };

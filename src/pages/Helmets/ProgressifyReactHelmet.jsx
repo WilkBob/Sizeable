@@ -10,8 +10,7 @@ const ProgressifyReactHelmet = () => {
       />
       <meta
         name="keywords"
-        content="keywords, related, to, your,   
-page"
+        content="images, webp, converter, resize, optimization, progressive, loading, react, library"
       />
 
       {/* Open Graph tags */}

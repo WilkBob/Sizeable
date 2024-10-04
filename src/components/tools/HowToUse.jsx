@@ -11,7 +11,7 @@ const HowToUse = ({ tool }) => {
       title: "How to Resize Images",
       steps: [
         "Upload your image(s) using the dropzone above",
-        "Choose your desired maximum width",
+        "Choose your desired width",
         "Click 'Process' to resize your images",
         "Download your resized image(s)",
       ],
@@ -21,14 +21,14 @@ const HowToUse = ({ tool }) => {
       title: "How to Convert to WebP",
       steps: [
         "Upload your image(s) using the dropzone above",
-        "Choose quality settings (if available)",
+        "Choose quality settings",
         "Click 'Process' to convert your images to WebP format",
         "Download your WebP image(s)",
       ],
     },
     progressify: {
       icon: <FiDownload className="text-rose-500" size={24} />,
-      title: "How to Progressify Images",
+      title: "How to Use Progressify",
       steps: [
         "Upload your image(s) using the dropzone above",
         "Set the desired thumbnail size",

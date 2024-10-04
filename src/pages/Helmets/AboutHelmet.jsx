@@ -4,11 +4,13 @@ const AboutHelmet = () => {
   return (
     <Helmet>
       <title>About - Sizeable</title>
-      <meta name="description" content="A brief description of your page." />
+      <meta
+        name="description"
+        content="Sizeable is a free image processing tool that makes optimizing images simple and accessible to everyone."
+      />
       <meta
         name="keywords"
-        content="keywords, related, to, your,   
- page"
+        content="images, webp, converter, resize, optimization, progressive, loading, react, library"
       />
 
       {/* Open Graph tags */}
@@ -29,8 +31,7 @@ const AboutHelmet = () => {
       <meta name="twitter:title" content="About - Sizeable" />
       <meta
         name="twitter:description"
-        content="A   
- brief description of your page."
+        content="Sizeable is a free image processing tool that makes optimizing images simple and accessible to everyone."
       />
       <meta
         name="twitter:image"

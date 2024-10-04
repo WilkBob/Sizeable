@@ -1,7 +1,7 @@
 import { auth } from "./Firebase";
 import { extractFilename } from "../utils/extractFilename";
-// const baseURL = "https://sizeable-437121.uc.r.appspot.com/";
-const baseURL = "http://127.0.0.1:8000/";
+const baseURL = "https://sizeable-437121.uc.r.appspot.com/";
+// const baseURL = "http://127.0.0.1:8000/";
 
 // query = {include_thumbnails: true, thumbnails_size: 300}
 

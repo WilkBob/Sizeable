@@ -21,7 +21,7 @@ const ResizeOptions = ({
         <FiImage className="mr-2" />
         Width (px){" "}
         <span className="text-gray-400 ml-2 text-sm">
-          - Your images will be scaled proportionally to this widths
+          - Your images will be scaled proportionally to this width
         </span>
       </h3>
       <div className="flex items-center space-x-4">
@@ -47,7 +47,7 @@ const ResizeOptions = ({
       <div className="mt-6 flex items-center gap-2">
         <Switch value={userWebp} onChange={setUserWebp} />
         <span className="text-white">Convert to WebP</span>
-        <span className="flex items-center text-lime-200">
+        <span className="flex items-center text-rose-400">
           <IoInformationCircle className="mr-1" />
           Recommended
         </span>
