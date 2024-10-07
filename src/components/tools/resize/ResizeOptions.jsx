@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FiImage } from "react-icons/fi";
 import Switch from "../Switch";
 import { IoInformationCircle } from "react-icons/io5";
+import { useState, useEffect } from "react";
 
 const ResizeOptions = ({
   userMaxWidth,
@@ -10,6 +11,18 @@ const ResizeOptions = ({
   userWebp,
   setUserWebp,
 }) => {
+  const [localUserMaxWidth, setLocalUserMaxWidth] = useState(userMaxWidth);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setUserMaxWidth(localUserMaxWidth);
+    }, 300);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [localUserMaxWidth, setUserMaxWidth]);
+
   return (
     <motion.div
       className="bg-rose-200/20 rounded-lg shadow-lg p-6 mt-6"
@@ -29,14 +42,14 @@ const ResizeOptions = ({
           type="range"
           min="100"
           max="2000"
-          value={userMaxWidth}
-          onChange={(e) => setUserMaxWidth(e.target.value)}
+          value={localUserMaxWidth}
+          onChange={(e) => setLocalUserMaxWidth(e.target.value)}
           className="w-full h-2 bg-gray-700 accent-rose-500 rounded-lg appearance-none cursor-pointer"
         />
         <input
           type="number"
-          value={userMaxWidth}
-          onChange={(e) => setUserMaxWidth(e.target.value)}
+          value={localUserMaxWidth}
+          onChange={(e) => setLocalUserMaxWidth(e.target.value)}
           min="100"
           max="2000"
           className="w-20 p-2 text-center bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
