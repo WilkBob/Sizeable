@@ -98,7 +98,7 @@ const Tools = () => {
             className="bg-rose-500 text-white px-4 py-2 rounded-md hover:bg-rose-600 transition-colors duration-300 flex items-center space-x-2"
           >
             <CgGoogle className="text-lg" />
-            <span>Login with Google</span>
+            <span>Sign In</span>
           </button>
         </div>
       )}
