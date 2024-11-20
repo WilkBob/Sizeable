@@ -2,7 +2,7 @@ import { CgClose } from "react-icons/cg";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
-const ImagePreview = ({ previewFiles, setPreviewFiles }) => {
+const ImagePreview = ({ previewFiles, setPreviewFiles, closeable = true }) => {
   const fileNumber = previewFiles.length;
   return (
     <>
@@ -19,22 +19,24 @@ const ImagePreview = ({ previewFiles, setPreviewFiles }) => {
                 +{fileNumber - 1}
               </div>
             )}
-            <motion.button
-              className="absolute top-2 right-2 p-1 bg-white bg-opacity-75 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50 flex text-center justify-center items-center hover:bg-opacity-100 transition duration-300"
-              onClick={() => setPreviewFiles([])}
-              whileHover={{ scale: 1.2 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-                duration: 0.3,
-              }}
-            >
-              <CgClose
-                size={20}
-                className="text-gray-800 hover:text-gray-600"
-              />
-            </motion.button>
+            {closeable && (
+              <motion.button
+                className="absolute top-2 right-2 p-1 bg-white bg-opacity-75 rounded-full focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-opacity-50 flex text-center justify-center items-center hover:bg-opacity-100 transition duration-300"
+                onClick={() => setPreviewFiles([])}
+                whileHover={{ scale: 1.2 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  duration: 0.3,
+                }}
+              >
+                <CgClose
+                  size={20}
+                  className="text-gray-800 hover:text-gray-600"
+                />
+              </motion.button>
+            )}
           </div>
         </div>
       )}
@@ -45,6 +47,7 @@ const ImagePreview = ({ previewFiles, setPreviewFiles }) => {
 ImagePreview.propTypes = {
   previewFiles: PropTypes.array.isRequired,
   setPreviewFiles: PropTypes.func.isRequired,
+  closeable: PropTypes.bool,
 };
 
 export default ImagePreview;

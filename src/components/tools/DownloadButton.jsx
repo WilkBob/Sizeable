@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import { FiDownload, FiArchive, FiCheck, FiRefreshCw } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import ImagePreview from "./ImagePreview";
+import { img } from "framer-motion/client";
 
 const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -87,10 +89,14 @@ const DownloadButton = ({ outUrl, filename, processedNumber, reset }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            {processedNumber > 1 ? "Zipped archive: " : "Single file: "}
+            {processedNumber > 1 ? "Zipped archive: " : "Image Name: "}
             <br />
+
             <span className="font-medium text-gray-300">{filename}</span>
           </motion.p>
+          {processedNumber === 1 && (
+            <img src={outUrl} alt={filename} className="" />
+          )}
           <motion.button
             className="mt-6 px-4 py-2 bg-gray-700 text-white rounded-full flex items-center space-x-2 hover:bg-gray-600 transition-colors duration-300"
             onClick={reset}
